@@ -7,7 +7,7 @@
  * @author UIA
  * @create 2017/07/07/21:09
  */
-public class SearchInTwoDimesionArray {
+public class Number3 {
     
     /**
      * 从数组左下角数字开始查起，该数字为行最大，列最小，所以 target 比该值大则往左移动继续查找，否则往上移动查找。
@@ -70,7 +70,7 @@ public class SearchInTwoDimesionArray {
             {4, 7, 10, 13},
             {6, 8, 11, 15}
         };
-        SearchInTwoDimesionArray s = new SearchInTwoDimesionArray();
+        Number3 s = new Number3();
         System.out.println(s.find2(1, a));
         System.out.println(s.find2(141, a));
         System.out.println(s.find2(4, a));
