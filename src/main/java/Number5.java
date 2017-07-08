@@ -46,7 +46,7 @@ public class Number5 {
     }
     
     /**
-     * 剑指offer 上的思路 ：遍历链表是从头到尾的顺序，但输出值却是从尾到头，即”后进先出”，所以考虑用栈实现这种顺序
+     * 剑指offer 上的思路 ：遍历链表是从头到尾的顺序，但输出值却是从尾到头，即”后进先出”，所以考虑用栈实现这种顺序.
      */
     public ArrayList<Integer> printListFromTailToHead2(ListNode listNode) {
         if (listNode == null) {
