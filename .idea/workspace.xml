@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99678d6-81df-4e24-9a36-1a260d529566" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Number7.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Number6.java" afterPath="$PROJECT_DIR$/src/main/java/Number6.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,12 +37,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Number6.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Number6.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Number6.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="340">
+              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Number7.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Number7.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+              <folding>
+                <element signature="e#333#342#0" expanded="true" />
+                <element signature="e#383#392#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,19 +108,6 @@
                 <element signature="e#1250#1259#0" expanded="true" />
                 <element signature="e#1302#1311#0" expanded="true" />
                 <element signature="e#1790#1799#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingletonLazyDoubleCheck.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/singleton/SingletonLazyDoubleCheck.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="25" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
-              <folding>
-                <element signature="e#684#685#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Number5.java" />
         <option value="$PROJECT_DIR$/src/main/java/TreeNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/Number6.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Number7.java" />
       </list>
     </option>
   </component>
@@ -814,12 +817,12 @@
       <option name="presentableId" value="Default" />
       <updated>1499432676869</updated>
       <workItem from="1499432679921" duration="12602000" />
-      <workItem from="1499478427321" duration="26303000" />
+      <workItem from="1499478427321" duration="30979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38905000" />
+    <option name="totallyTimeSpent" value="43581000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
@@ -958,8 +961,8 @@
         <state relative-caret-position="520">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="false" />
+            <element signature="e#584#585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1065,9 +1068,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Number6.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        <state relative-caret-position="340">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Number7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <element signature="e#333#342#0" expanded="true" />
+            <element signature="e#383#392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

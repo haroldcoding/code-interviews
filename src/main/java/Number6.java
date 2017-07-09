@@ -36,6 +36,7 @@ public class Number6 {
     }
     
     public TreeNode reConstructBinaryTree1(int[] pre, int[] in) {
+        
         if (pre == null || in == null || pre.length == 0 || in.length == 0
             || pre.length != in.length) {
             return null;
