@@ -1,4 +1,6 @@
+import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**
  * 题目描述：
@@ -21,8 +23,6 @@ public class Number7 {
      * 用两个栈实现队列，假设 stack1 用于入队， stack2 用于出队，那么要保证元素的先进先出就必须满足以下两点：
      * 1. 当 stack2 不为空的时候，不能将 stack1 中的元素压入 stack2
      * 2. 当stack1 的元素压入 stack2 中时，必须将 stack1 中的元素全部压入 stack2
-     *
-     * @param node
      */
     public void push2(int node) {
         stack1.push(node);
@@ -40,4 +40,33 @@ public class Number7 {
         }
         return stack2.pop();
     }
+    
+    /**
+     * 用两个队列实现栈.
+     */
+    Queue<Integer> queuePush = new ConcurrentLinkedDeque<>();
+    Queue<Integer> queuePop = new ConcurrentLinkedDeque<>();
+    
+    public void push(int node) {
+        queuePush.offer(node);
+        
+    }
+    
+    public int pop2() {
+        if (queuePush.isEmpty() && queuePop.isEmpty()) {
+            throw new RuntimeException("stack is empty");
+        }
+        if (queuePush.isEmpty()) {
+            while (queuePop.size() != 1) {
+                queuePush.offer(queuePop.poll());
+            }
+            return queuePop.poll();
+        }
+        while (queuePush.size() != 1) {
+            queuePop.offer(queuePush.poll());
+        }
+        return queuePush.poll();
+    }
+    
+    
 }
