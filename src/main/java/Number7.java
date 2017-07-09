@@ -17,21 +17,22 @@ public class Number7 {
     Stack<Integer> stack2 = new Stack<Integer>();
     
     /**
-     * 第一次的写法：stack1 在入栈结束后为空，stack2 保存所有的数据
-     * 每入栈一个值都要先 stack2 弹出到 stack1 然后在 入栈，最后将stack1 弹出到 stack2 以完成追加数据到队
-     * 尾的操作。
+     * 参考剑指offer和《程序员代码面试指南》：
+     * 用两个栈实现队列，假设 stack1 用于入队， stack2 用于出队，那么要保证元素的先进先出就必须满足以下两点：
+     * 1. 当 stack2 不为空的时候，不能将 stack1 中的元素压入 stack2
+     * 2. 当stack1 的元素压入 stack2 中时，必须将 stack1 中的元素全部压入 stack2
+     *
+     * @param node
      */
-    public void push(int node) {
-        while (!stack2.isEmpty()) {
-            stack1.push(stack2.pop());
-        }
+    public void push2(int node) {
         stack1.push(node);
-        while (!stack1.isEmpty()) {
-            stack2.push(stack1.pop());
+        if (stack2.isEmpty()) {
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
         }
+        
     }
-    
-    
     
     public int pop() {
         if (stack1.isEmpty() && stack2.isEmpty()) {
