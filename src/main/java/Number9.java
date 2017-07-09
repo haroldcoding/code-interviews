@@ -33,10 +33,7 @@ public class Number9 {
      * n 级台阶，所以 f(n) = f(n-1) + f(n-2) + ... + f(1) + 1.
      */
     public int JumpFloorII(int target) {
-        int[] pre = {0, 1, 2};
-        if (target <= 2) {
-            return pre[target];
-        }
+        
         int[] result = new int[target + 1];
         for (int i = 0; i <= target; i++) {
             if (i <= 2) {
