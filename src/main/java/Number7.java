@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -44,8 +45,8 @@ public class Number7 {
     /**
      * 用两个队列实现栈.
      */
-    Queue<Integer> queuePush = new ConcurrentLinkedDeque<>();
-    Queue<Integer> queuePop = new ConcurrentLinkedDeque<>();
+    Queue<Integer> queuePush = new LinkedList<>();
+    Queue<Integer> queuePop = new LinkedList<>();
     
     public void push(int node) {
         queuePush.offer(node);
