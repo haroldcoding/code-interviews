@@ -1,5 +1,8 @@
+import java.util.List;
+
 /**
  * 反转链表
+ *
  * @author haroldcoding
  * @create 2017/07/11/23:36
  */
@@ -32,6 +35,22 @@ public class Number16 {
         return previousNode;
     }
     
+    /**
+     * 递归实现
+     */
+    public static ListNode reverseListUseRecursion(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode nextNode = head.next;
+        head.next = null;
+        ListNode resvers = reverseListUseRecursion(nextNode);
+        nextNode.next = head;
+        return resvers;
+        
+    }
+    
+    
     public static void main(String[] args) {
         ListNode n1 = new ListNode(1);
         ListNode n2 = new ListNode(2);
@@ -44,11 +63,18 @@ public class Number16 {
         n3.next = n4;
         n4.next = n5;
         n5.next = n6;
+
+//        ListNode temp = reverseList(n1);
+//        while (temp != null) {
+//            System.out.print(temp.val + "-->");
+//            temp = temp.next;
+//        }
+//        System.out.println("null");
         
-        ListNode temp = reverseList(n1);
-        while (temp != null) {
-            System.out.print(temp.val + "-->");
-            temp = temp.next;
+        ListNode temp1 = reverseListUseRecursion(n1);
+        while (temp1 != null) {
+            System.out.print(temp1.val + "-->");
+            temp1 = temp1.next;
         }
         System.out.println("null");
     }
