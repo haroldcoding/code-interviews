@@ -9,19 +9,7 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
-/**
- * 节点定义
- */
 
-class ListNode {
-    
-    int val;
-    ListNode next = null;
-    
-    ListNode(int val) {
-        this.val = val;
-    }
-}
 
 public class Number5 {
     

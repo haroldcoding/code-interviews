@@ -81,7 +81,6 @@ public class Number12 {
     private static boolean addOne(int[] number) {
         boolean isMaxOverflow = false;
         int lastIndex = number.length - 1;
-        int index = lastIndex;
         number[lastIndex] += 1;
         for (int i = lastIndex; i > 0; i--) {
             if (number[i] >= 10) {
@@ -90,7 +89,6 @@ public class Number12 {
             }
             if (i - 1 == 0 && number[i - 1] >= 10) {
                 isMaxOverflow = true;
-                break;
             }
         }
         return isMaxOverflow;
@@ -98,6 +96,7 @@ public class Number12 {
     
     public static void main(String[] args) {
         //print_1_ToMaxOfNDigits1(2);
-        printOneToMax_N_Digits(2);
+        //printOneToMax_N_Digits(3);
+        print_1_ToMaxOfNDigits(3);
     }
 }
