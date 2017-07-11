@@ -22,7 +22,7 @@ public class Number8 {
             }
             mid = (start + end) / 2;
             if (array[start] == array[mid] && array[mid] == array[end]) {
-                minNumberInOrder(array, start, end);
+                return minNumberInOrder(array, start, end);
             }
             if (array[mid] >= array[start]) {
                 start = mid;
