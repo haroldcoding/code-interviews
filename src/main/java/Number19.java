@@ -25,8 +25,11 @@ public class Number19 {
     
     /**
      * 循环实现
-     * 从头结点所在层开始，每次循环遍历当前层所有结点并交换结点的左右叶节点，然后保存非空的左右叶结点；
-     * 当交换完所有非空叶节点的左右子结点之后，就得到了数的镜像
+     * 思路：
+     * 利用 ArrayList 保存每层的结点；
+     * 每次循环，遍历当前 list 中的所有结点并交换结点的左右叶节点，然后保存非空的左右叶结点，也就是下一层的结点；
+     * 当 list 元素数为 0 时，就完成了所有结点的交换，得到了树的景象
+     *
      */
     public static void mirrorCircle(TreeNode root) {
         if (root == null) {
@@ -57,9 +60,7 @@ public class Number19 {
                     tempNodeList.add(treeNodes.get(i).right);
                 }
             }
-            
             treeNodes = tempNodeList;
-            
         }
     }
 }

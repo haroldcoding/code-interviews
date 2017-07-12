@@ -90,12 +90,12 @@
       <file leaf-file-name="Number19.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Number19.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+            <state relative-caret-position="440">
+              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#726#736#0" expanded="true" />
-                <element signature="e#1050#1060#0" expanded="true" />
+                <element signature="e#788#798#0" expanded="true" />
+                <element signature="e#1112#1122#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -833,12 +833,12 @@
       <workItem from="1499432679921" duration="12602000" />
       <workItem from="1499478427321" duration="83682000" />
       <workItem from="1499829161931" duration="11304000" />
-      <workItem from="1499866790873" duration="6649000" />
+      <workItem from="1499866790873" duration="7375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114237000" />
+    <option name="totallyTimeSpent" value="114963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
@@ -885,18 +885,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Number19.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1267,12 +1259,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Number19.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+        <state relative-caret-position="440">
+          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#726#736#0" expanded="true" />
-            <element signature="e#1050#1060#0" expanded="true" />
+            <element signature="e#788#798#0" expanded="true" />
+            <element signature="e#1112#1122#0" expanded="true" />
           </folding>
         </state>
       </provider>
