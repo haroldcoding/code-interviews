@@ -1,4 +1,3 @@
-import java.util.List;
 
 /**
  * 反转链表
@@ -9,12 +8,8 @@ import java.util.List;
 public class Number16 {
     
     public static ListNode reverseList(ListNode head) {
-        // 头结点为空
-        if (head == null) {
-            return null;
-        }
-        // 只有一个结点
-        if (head.next == null) {
+        // 头结点为空,或只有一个头结点
+        if (head == null || head.next == null) {
             return head;
         }
         // 原链表中前一个结点
@@ -44,9 +39,9 @@ public class Number16 {
         }
         ListNode nextNode = head.next;
         head.next = null;
-        ListNode resvers = reverseListUseRecursion(nextNode);
+        ListNode reverseHeadNode = reverseListUseRecursion(nextNode);
         nextNode.next = head;
-        return resvers;
+        return reverseHeadNode;
         
     }
     
