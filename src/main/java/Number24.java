@@ -1,7 +1,8 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+
 
 /**
+ * 二叉搜索树后序遍历序列
+ *
  * @author haroldcoding
  * @create 2017/07/18/16:09
  */
