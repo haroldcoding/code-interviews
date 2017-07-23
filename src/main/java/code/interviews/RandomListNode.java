@@ -1,0 +1,16 @@
+package code.interviews;
+
+/**
+ * @author haroldcoding
+ * @create 2017/07/19/23:15
+ */
+public class RandomListNode {
+    
+    int label;
+    RandomListNode next = null;
+    RandomListNode random = null;
+    
+    RandomListNode(int label) {
+        this.label = label;
+    }
+}
