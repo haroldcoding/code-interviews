@@ -83,10 +83,46 @@ public class Number32 {
         return (int) Math.pow(10, base);
     }
     
+    /**
+     * 从个位到最高位依次计算 1  出现的次数，所得次数累加和就是所求：
+     * 比如 一个 n 位的整数， 第 i 位 固定为1 的次数分三种情况：
+     * 如果第 i 位数为 m  :
+     * 当 m > 1 ，则 第i 位左边看成一个数的话，取值范围在 0 到  high = n / Math.pow(10,i), 而从第1位到第i-1位
+     * 每一位取值都可以从0-9中取，所以 总数为 (high+1)*Math.pow(10,i-1);
+     * 当 m = 1 ，则第 i 位 左边的数取值范围在 0 到 high，但是当取到high时，从第1位到第i-1位每一位就不是从0-9取了，
+     * 比如2193，当百位即第3位固定为1的时候，左边取2时，就要计算2100 - 2193范围内含有1的整数的个数，即 93 + 1 个
+     * 所以此时总数为 high*Math.pow(10,i-1) + n % Math.pow(10,i) % Math.pow(10,i-1) + 1;
+     * 当 m < 1 ，则第 i 位 左边的数取值范围在 0 到 high-1，从第1位到第i-1位依然每一位取值都可以从0-9中取,
+     * 总数为 high*Math.pow(10,i-1)
+     */
+    public static int solution3(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        int result = 0;
+        for (int k = 10, high = n, low = 0; high != 0; k *= 10) {
+            // 第 i 位的高位,
+            high = n / k;
+            result += high * (k / 10);
+            int temp = n % k;
+            // 第 i 位 的数字
+            int cur = temp / (k / 10);
+            // 第 i 位 的低位
+            low = temp % (k / 10);
+            //
+            if (cur > 1) {
+                result += k / 10;
+            } else if (cur == 1) {
+                result += low + 1;
+            }
+        }
+        return result;
+    }
+    
     public static void main(String[] args) {
         
         int test = 1513;
-        boolean hasErr = numberOf1Between1AndN_Solution(test) != solution2(test);
+        boolean hasErr = numberOf1Between1AndN_Solution(test) != solution3(test);
         if (hasErr) {
             System.out.println("233333333333");
         } else {
