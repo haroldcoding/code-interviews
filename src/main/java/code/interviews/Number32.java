@@ -84,14 +84,9 @@ public class Number32 {
     }
     
     public static void main(String[] args) {
-        boolean hasErr = false;
-        for (int i = 0; i < 300; i++) {
-            int test = (int) (Math.random() * Math.pow(10, Math.random() * 10));
-            if (numberOf1Between1AndN_Solution(test) != solution2(test)) {
-                hasErr = true;
-                break;
-            }
-        }
+        
+        int test = 1513;
+        boolean hasErr = numberOf1Between1AndN_Solution(test) != solution2(test);
         if (hasErr) {
             System.out.println("233333333333");
         } else {
