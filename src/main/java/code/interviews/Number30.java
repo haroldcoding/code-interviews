@@ -171,10 +171,16 @@ public class Number30 {
         return result;
     }
     
+    /**
+     * 取第 k 小的数， 则这个数的下标为 k-1
+     * @param arr
+     * @param k
+     * @return
+     */
     private static int getMinKthByBFPRT(int[] arr, int k) {
         int[] copyArr = new int[arr.length];
         System.arraycopy(arr, 0, copyArr, 0, arr.length);
-        return select(copyArr, 0, copyArr.length - 1, k);
+        return select(copyArr, 0, copyArr.length - 1, k - 1);
     }
     
     /**
@@ -202,7 +208,7 @@ public class Number30 {
     }
     
     /**
-     * 将数组根据pivot分区，比pivot小的放左边，大的放右边，相等的放中间
+     * 将数组根据pivot分区，比pivot小的放左边，大的放右边，相等的放中间 O(N)
      * @param arr 源数组
      * @param start 范围上界
      * @param end 范围下界
@@ -239,7 +245,7 @@ public class Number30 {
      * @return 指定范围的中位数
      */
     private static int medianOfMedians(int[] arr, int start, int end) {
-        int num = end - start + 2;
+        int num = end - start + 1;
         int offset = num % 5 == 0 ? 0 : 1;
         int[] mArr = new int[num / 5 + offset];
         for (int i = 0, length = mArr.length; i < length; i++) {
