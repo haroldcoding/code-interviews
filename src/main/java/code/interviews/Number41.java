@@ -36,8 +36,6 @@ public class Number41 {
     
     /**
      * 连续序列和为sum 的所有序列
-     * @param sum
-     * @return
      */
     public static ArrayList<ArrayList<Integer>> solution(int sum) {
         if (sum < 3) {
@@ -68,7 +66,47 @@ public class Number41 {
         return res;
     }
     
+    /**
+     * 输入一个递增排序的数组和一个数字S，在数组中查找两个数，是的他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
+     */
+    public static ArrayList<Integer> findNumbersWithSum(int[] array, int sum) {
+        if (array == null || array.length == 0) {
+            return new ArrayList<Integer>();
+        }
+        int left = 0;
+        int right = array.length - 1;
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        int max = 0;
+        int twoSum = 0;
+        while (left != right) {
+            twoSum = array[left] + array[right];
+            if (twoSum > sum) {
+                --right;
+            } else if (twoSum < sum) {
+                ++left;
+            } else {
+                int t = array[left] * array[right];
+                if (res.size() == 0) {
+                    res.add(array[left]);
+                    res.add(array[right]);
+                } else if (max > t) {
+                    res.set(0, array[left]);
+                    res.set(1, array[right]);
+                }
+                max = t;
+                --right;
+            }
+        }
+        return res;
+    }
+    
     public static void main(String[] args) {
+        int[] array = {1, 2, 4, 7, 11, 15};
+        ArrayList<Integer> r = findNumbersWithSum(array, 15);
+        for (int i : r) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
         ArrayList<ArrayList<Integer>> res = solution(15);
         for (ArrayList<Integer> item : res) {
             for (int i : item) {

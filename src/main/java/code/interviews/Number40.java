@@ -11,9 +11,6 @@ public class Number40 {
     
     /**
      * 利用位运算 异或
-     * @param array
-     * @param num1
-     * @param num2
      */
     public static void solution(int[] array, int[] num1, int[] num2) {
         if (array == null || array.length < 2) {
@@ -36,11 +33,12 @@ public class Number40 {
     }
     
     private static boolean isOneIndexOfNBit(int num, int n) {
-        num >>= (n-1);
+        num >>= (n - 1);
         return (num & 1) == 1;
     }
     
     private static int getIndexOfFirstBitIsOne(int num) {
+        // return num &~(num-1); 也可以求最低位1的位置
         int res = 0;
         while (num != 0) {
             ++res;
@@ -48,12 +46,110 @@ public class Number40 {
         }
         return res;
     }
-    public static void main(String[] args){
-        int[] array = {2,4,3,6,3,2,5,5};
+    
+    /**
+     * 数组a中只有一个数出现一次，其他数字都出现了3次，找出这个数字
+     *
+     * @param arr 数组
+     * @return 只出现一次的数
+     */
+    public static int solution3(int[] arr) {
+        if (arr == null || arr.length < 4) {
+            throw new IllegalArgumentException("数组长度必须大于或等于4");
+        }
+        // 用一个32位的数组保存数组arr中所有数的二进制对应位的和
+        int[] bits = new int[32];
+        for (int i = 0, len = arr.length; i < len; i++) {
+            for (int j = 0; j < 32; j++) {
+                bits[j] = bits[j] + ((arr[i] >> j) & 1);
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            if (bits[i] % 3 != 0) {
+                res = res | (1 << i);
+            }
+        }
+        return res;
+    }
+    
+    /**
+     * 一个数组中只有三个数只出现一次，其余都出现两次，找到这三个数
+     *
+     * @param arr 数组
+     * @param res 长度为3的数组，保存三个只出现一次的数
+     */
+    public static void solution4(int[] arr, int[] res) {
+        if (arr.length < 3) {
+            return;
+        }
+        int xExclusiveOr = 0;
+        // 假设三个数为 a b c
+        // 循环完成后结果为 x = a^b^c
+        for (int i : arr) {
+            xExclusiveOr ^= i;
+        }
+        int flag = 0;
+        // 设f(n)为求非零正数n 的二进制数从右往左第一个1的位置
+        // 循环完成后 结果为 f(x^a) ^ f(x^b) ^ f(x^c)
+        for (int i : arr) {
+            flag ^= lastOfBitOne(xExclusiveOr ^ i);
+        }
+        // 上一步循环后，再求结果的 二进制数从右往左第一个1的位置，假设为m
+        // 此时  x^a x^b  x^c 三个数只有一个第m位为1，假定为x^a
+        flag = lastOfBitOne(flag);
+        int firstUniqueNumIndex = 0;
+        int len = arr.length;
+        for (int i = 0; i < len; i++) {
+            // 由于其他数与a都不相等， 所以f(x^other) 也不等于 flag
+            // 所以在遍历一遍数组，分别求f(x^i) 当等于flag时的那个数就是第一个只重复一次的数，结束循环
+            if (lastOfBitOne(xExclusiveOr ^ arr[i]) == flag) {
+                res[0] = arr[i];
+                firstUniqueNumIndex = i;
+                break;
+            }
+        }
+        // 将找到的这个数放到数组末尾
+        swap(arr, firstUniqueNumIndex, len - 1);
+        // 在数组 0 - len-2 内找剩余的两个数
+        int[] twoUnique = getTwoUnique(arr,0,len-2);
+        res[1] = twoUnique[0];
+        res[2] = twoUnique[1];
+    }
+    
+    private static int[] getTwoUnique(int[] arr, int start, int end) {
+        int[] res = new int[2];
+        int xExclusiveOr = 0;
+        for (int i = start; i <= end; i++) {
+            xExclusiveOr ^= arr[i];
+        }
+        int lastOfBitOneIndex = lastOfBitOne(xExclusiveOr);
+        for (int i = start; i <= end; i++) {
+            if (lastOfBitOne(arr[i]) == lastOfBitOneIndex) {
+                res[0] ^= arr[i];
+            } else {
+                res[0] ^= arr[i];
+            }
+        }
+        return res;
+    }
+    
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    
+    private static int lastOfBitOne(int num) {
+        return num & ~(num - 1);
+    }
+    
+    public static void main(String[] args) {
+        int[] array = {2, 4, 3, 6, 3, 2, 5, 5};
         int[] num1 = new int[1];
         int[] num2 = new int[1];
-        solution(array,num1,num2);
-        System.out.println(num1[0]);
-        System.out.println(num2[0]);
+        solution(array, num1, num2);
+        int[] a = {1, 3, 3, 3};
+        System.out.println(solution3(a));
     }
 }
