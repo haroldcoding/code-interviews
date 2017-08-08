@@ -1,6 +1,8 @@
 package code.interviews;
 
 
+import java.util.HashMap;
+
 /**
  * 数组中只出现一次的数字 一个整型数组里除了两个数字之外，其他的数字出现了两次，找到这两个数字，要求时间复杂度O(n),空间复杂度O（1）
  *
@@ -112,7 +114,7 @@ public class Number40 {
         // 将找到的这个数放到数组末尾
         swap(arr, firstUniqueNumIndex, len - 1);
         // 在数组 0 - len-2 内找剩余的两个数
-        int[] twoUnique = getTwoUnique(arr,0,len-2);
+        int[] twoUnique = getTwoUnique(arr, 0, len - 2);
         res[1] = twoUnique[0];
         res[2] = twoUnique[1];
     }
@@ -144,12 +146,59 @@ public class Number40 {
         return num & ~(num - 1);
     }
     
+    // Parameters:
+    //    numbers:     an array of integers
+    //    length:      the length of array numbers
+    //    duplication: (Output) the duplicated number in the array number,length of duplication array is 1,so using duplication[0] = ? in implementation;
+    //                  Here duplication like pointor in C/C++, duplication[0] equal *duplication in C/C++
+    //    这里要特别注意~返回任意重复的一个，赋值duplication[0]
+    // Return value:       true if the input is valid, and there are some duplications in the array number
+    //                     otherwise false
+    public static boolean duplicate(int[] numbers, int length, int[] duplication) {
+        if (numbers == null || numbers.length == 0 || length != numbers.length) {
+            return false;
+        }
+        HashMap<Integer, Integer> numMap = new HashMap<Integer, Integer>();
+        for (int i : numbers) {
+            if (i > length - 1 || i < 0) {
+                return false;
+            }
+            if (numMap.containsKey(i)) {
+                numMap.put(i, numMap.get(i) + 1);
+            } else {
+                numMap.put(i, 1);
+            }
+        }
+        for (int i : numbers) {
+            if (numMap.get(i) > 1) {
+                duplication[0] = i;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static boolean duplicate2(int[] numbers, int length, int[] duplication) {
+        if (numbers == null || numbers.length == 0 || length != numbers.length) {
+            return false;
+        }
+        for (int index = 0; index < length; index++) {
+            if (numbers[index] > length) {
+                duplication[0] = numbers[index] - length;
+                return true;
+            } else {
+                numbers[numbers[index]] += length;
+            }
+        }
+        return false;
+    }
+    
     public static void main(String[] args) {
         int[] array = {2, 4, 3, 6, 3, 2, 5, 5};
         int[] num1 = new int[1];
         int[] num2 = new int[1];
         solution(array, num1, num2);
         int[] a = {1, 3, 3, 3};
-        System.out.println(solution3(a));
+        System.out.println(duplicate(a, 4, new int[1]));
     }
 }

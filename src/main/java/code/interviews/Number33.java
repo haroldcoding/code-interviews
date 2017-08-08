@@ -1,5 +1,7 @@
 package code.interviews;
 
+
+
 /**
  * @author haroldcoding
  * @create 2017/08/04/16:01
@@ -16,7 +18,7 @@ public class Number33 {
             for (int k = i; k != 0; k--) {
                 String s1 = numbers[k - 1] + "" + numbers[k];
                 String s2 = numbers[k] + "" + numbers[k - 1];
-                if (s2.equals(minStringOfNum(s1, s2))) {
+                if (minStringOfNum(s1, s2) > 0 ) {
                     swap(numbers, k - 1, k);
                 } else {
                     break;
@@ -31,22 +33,14 @@ public class Number33 {
         return res.toString();
     }
     
-    
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
     
-    private static String minStringOfNum(String a, String b) {
-        for (int i = 0; i < a.length(); i++) {
-            if (a.charAt(i) > b.charAt(i)) {
-                return b;
-            } else if (a.charAt(i) < b.charAt(i)) {
-                return a;
-            }
-        }
-        return a;
+    private static int minStringOfNum(String a, String b) {
+        return a.compareTo(b);
     }
     
     

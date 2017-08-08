@@ -66,23 +66,23 @@ public class Number42 {
     
     /**
      * 将字符串循环左移 n 位
-     * @param str
-     * @param n
-     * @return
      */
     public static String leftRotateString(String str, int n) {
-        if (str == null || str.length() == 0 || n <= 0 || n == str.length()) {
+        if (str == null || str.length() == 0 || n <= 0) {
             return str;
         }
         int len = str.length();
-        int rotateLen = n > len ? n - len : n;
-        return str.substring(rotateLen) + str.substring(0,rotateLen);
+        if (n > len && n % len == 0) {
+            return str;
+        }
+        int rotateLen = n > len ? n % len : n;
+        return str.substring(rotateLen) + str.substring(0, rotateLen);
     }
     
     public static void main(String[] args) {
         String s = "i am a student.";
         System.out.println(solution2(s));
         String s1 = "xyzabc";
-        System.out.println(leftRotateString(s1,3));
+        System.out.println(leftRotateString(s1, 17));
     }
 }
